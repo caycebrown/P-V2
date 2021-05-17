@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PortfolioV2</title>
+</head>
+<body>
+    <div id="slider">
+        <div class="row">
+            <div class="arrow left"></div>
+            <img data-key="0" class="slider-img active" src="http://clipart-library.com/images_k/transparent-motorcycle/transparent-motorcycle-10.png">
+            <img data-key="1" class="slider-img" src="https://image.similarpng.com/very-thumbnail/2020/09/Man-riding-motorcycle-on-transparent-background-PNG.png">
+            <img data-key="2" class="slider-img" src="https://image.similarpng.com/very-thumbnail/2020/09/Hand-drawing-of-skull-riding-vintage-motorcycle-on-transparent-background-PNG.png">
+            <img data-key="3" class="slider-img" src="https://image.similarpng.com/very-thumbnail/2020/09/Skull-with-motorcycle-design-on-transparent-background-PNG.png">
+            <div class="arrow right"></div>
+        </div>
+    </div>
+    
+</body>
+
+<style>
+
+    .slider-img {
+        max-height: 40vh;
+        position: absolute;
+        top: 5vh;
+        transition-duration: 2s;
+        transform: translateY(-300%);
+        opacity: 0;
+    }
+
+    .active {
+        display: flex;
+        opacity: 1;
+    }
+
+    .slider-img.active {
+        max-height: 50vh;
+        transform: translateY(0%);
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .arrow {
+        border: solid black;
+        border-width: 0px 6px 6px 0px;
+        padding: 6px;
+        position: absolute;
+        top: 25vh;
+    }
+
+    .right {
+        transform: rotate(-45deg);
+        margin-left: 75vw;
+    }
+
+    .left {
+        transform: rotate(135deg);
+        margin-right: 75vw;
+    }
+
+</style>
+
+<script>
+
+    let currentImage = 0;
+
+    function slideImage(e) {
+        document.querySelector('.active').classList.remove('active');
+        e.target.classList.contains('right') ? currentImage++ : currentImage--;
+        document.querySelector(`[data-key="${currentImage % 4}"]`).classList.add('active');
+    }
+
+    document.querySelectorAll('.arrow').forEach(element => {element.addEventListener('click', slideImage);})
+
+</script>
+</html>
