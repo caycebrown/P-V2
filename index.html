@@ -73,7 +73,8 @@
 
     function slideImage(e) {
         document.querySelector('.active').classList.remove('active');
-        e.target.classList.contains('right') ? currentImage++ : currentImage--;
+        e.target.classList.contains('right') ? currentImage++ : currentImage === 0 ? currentImage = 3 : currentImage--;
+        //console.log(currentImage)
         document.querySelector(`[data-key="${currentImage % 4}"]`).classList.add('active');
     }
 
