@@ -15,27 +15,35 @@
             <div class="arrow left"></div>
 
             <div class="character active" data-key="0">
-                <h1>The Creative</h1>
                 <img data-key="0" class="slider-img" src="http://clipart-library.com/images_k/transparent-motorcycle/transparent-motorcycle-10.png">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas amet possimus enim asperiores fugit? Provident, eaque voluptatum dicta veritatis unde enim rerum atque accusamus neque iusto hic esse ipsum libero!</p>
+                <div>
+                    <h1>The Creative</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas amet possimus enim asperiores fugit? Provident, eaque voluptatum dicta veritatis unde enim rerum atque accusamus neque iusto hic esse ipsum libero!</p>
+                </div>
             </div>
 
             <div class="character" data-key="1">
-                <h1>The Thrill-Seeker</h1>
                 <img data-key="1" class="slider-img" src="https://image.similarpng.com/very-thumbnail/2020/09/Man-riding-motorcycle-on-transparent-background-PNG.png">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas amet possimus enim asperiores fugit? Provident, eaque voluptatum dicta veritatis unde enim rerum atque accusamus neque iusto hic esse ipsum libero!</p>
+                <div>
+                    <h1>The Thrill-Seeker</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas amet possimus enim asperiores fugit? Provident, eaque voluptatum dicta veritatis unde enim rerum atque accusamus neque iusto hic esse ipsum libero!</p>
+                </div>            
             </div>
 
             <div class="character" data-key="2">
-                <h1>The Dad</h1>
                 <img data-key="2" class="slider-img" src="https://image.similarpng.com/very-thumbnail/2020/09/Hand-drawing-of-skull-riding-vintage-motorcycle-on-transparent-background-PNG.png">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas amet possimus enim asperiores fugit? Provident, eaque voluptatum dicta veritatis unde enim rerum atque accusamus neque iusto hic esse ipsum libero!</p>
+                <div>
+                    <h1>The Dad</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas amet possimus enim asperiores fugit? Provident, eaque voluptatum dicta veritatis unde enim rerum atque accusamus neque iusto hic esse ipsum libero!</p>
+                </div>            
             </div>
 
             <div class="character" data-key="3">
-                <h1>The Learner</h1>
                 <img data-key="3" class="slider-img" src="https://image.similarpng.com/very-thumbnail/2020/09/Skull-with-motorcycle-design-on-transparent-background-PNG.png">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas amet possimus enim asperiores fugit? Provident, eaque voluptatum dicta veritatis unde enim rerum atque accusamus neque iusto hic esse ipsum libero!</p>
+                <div>
+                    <h1>The Learner</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas amet possimus enim asperiores fugit? Provident, eaque voluptatum dicta veritatis unde enim rerum atque accusamus neque iusto hic esse ipsum libero!</p>
+                </div>            
             </div>
             
             <div class="arrow right"></div>
@@ -46,12 +54,20 @@
 
 <style>
 
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
     .slider-img {
         margin-top: 3vh;
         max-height: 40vh;
+        margin-right: 3vw;
     }
 
     .title {
+        background-color: #333333;
+        color: whitesmoke;
         display: flex;
         justify-content: center;
     }
@@ -62,8 +78,8 @@
     }
 
     .character {
+        margin-top: 15vh;
         display: flex;
-        flex-direction: column;
         align-items: center;
         position: absolute;
         top: 12vh;
@@ -77,7 +93,7 @@
         padding: 10px;
         font-weight: bolder;
         font-size: 1.25em;
-        width: 30vw;
+        width: 20vw;
     }
 
     .active {
@@ -101,7 +117,7 @@
         border-width: 0px 6px 6px 0px;
         padding: 6px;
         position: absolute;
-        top: 25vh;
+        top: 45vh;
     }
 
     .right {
@@ -123,7 +139,6 @@
     function slideImage(e) {
         document.querySelector('.active').classList.remove('active');
         e.target.classList.contains('right') ? currentImage++ : currentImage === 0 ? currentImage = 3 : currentImage--;
-        //console.log(currentImage)
         document.querySelector(`[data-key="${currentImage % 4}"]`).classList.add('active');
     }
 
